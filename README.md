@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# next-file-app
+
+A file browser built with [Next.js](https://nextjs.org), React 19, TypeScript, and Tailwind CSS. Browse a folder/file hierarchy, navigate into nested folders, and sort items by name or date.
+
+## Features
+
+- **File listing** — displays files and folders from a JSON data source with type-appropriate icons from `@brighthr/icons`
+- **Folder navigation** — double-click a folder to navigate into it; the URL reflects the current path (e.g. `/Expenses/Receipts`)
+- **Breadcrumb** — always-visible breadcrumb trail with links back to any ancestor folder
+- **Sorting** — sort by name (A–Z / Z–A) or date added (oldest / newest) via a URL search param (`?sort=`)
+
+## Project structure
+
+```
+app/
+  page.tsx          # Root file listing
+  [...path]/
+    page.tsx        # Dynamic nested folder page
+  layout.tsx        # Root layout with breadcrumb and sort controls
+components/
+  Breadcrumb/       # Path breadcrumb component
+  FileItem/         # Individual file/folder row
+  FileList/         # Renders a list of FileItems
+  Options/          # Header bar (breadcrumb + sort)
+  Sorting/          # Sort dropdown
+data/
+  files.json        # File/folder data source
+  data.tsx          # Re-exports files.json for use in pages
+lib/
+  sort.ts           # Sorting utility
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script               | Description                  |
+| -------------------- | ---------------------------- |
+| `npm run dev`        | Start the development server |
+| `npm run build`      | Build for production         |
+| `npm run start`      | Start the production server  |
+| `npm run lint`       | Run ESLint                   |
+| `npm test`           | Run Jest tests               |
+| `npm run test:watch` | Run Jest in watch mode       |
 
-## Learn More
+## Testing
 
-To learn more about Next.js, take a look at the following resources:
+Tests are written with [Jest](https://jestjs.io) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). Each component has a co-located test file.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm test
+```
