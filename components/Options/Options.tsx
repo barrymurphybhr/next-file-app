@@ -14,7 +14,6 @@ export default function Options() {
         activeClasses="underline font-bold"
         containerClasses="flex py-4 gap-2"
         listClasses="hover:underline flex items-center font-base"
-        capitalizeLinks
       />
       <Suspense>
         <Sorting />
