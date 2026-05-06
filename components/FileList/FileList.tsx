@@ -17,7 +17,7 @@ export default function FileList({
   currentPath = "",
 }: FileListProps) {
   return (
-    <div className="flex flex-col gap-2 pt-4 pl-4">
+    <div className="flex flex-wrap gap-8 pt-4 pl-4">
       {fileItems.map((file, i) => {
         return (
           <FileItem
