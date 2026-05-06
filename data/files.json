@@ -24,6 +24,40 @@
           "type": "doc",
           "name": "Fuel allowances",
           "added": "2017-05-03"
+        },
+        {
+          "type": "folder",
+          "name": "Receipts",
+          "added": "2017-06-01",
+          "folder_files": [
+            {
+              "type": "pdf",
+              "name": "Hotel receipt",
+              "added": "2017-06-10"
+            },
+            {
+              "type": "pdf",
+              "name": "Train receipt",
+              "added": "2017-06-11"
+            },
+            {
+              "type": "folder",
+              "name": "International",
+              "added": "2017-07-01",
+              "folder_files": [
+                {
+                  "type": "pdf",
+                  "name": "Flight receipt",
+                  "added": "2017-07-15"
+                },
+                {
+                  "type": "pdf",
+                  "name": "Hotel abroad",
+                  "added": "2017-07-16"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
