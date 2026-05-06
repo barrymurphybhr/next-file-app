@@ -12,12 +12,13 @@ const mockUsePathname = usePathname as jest.Mock;
 
 jest.mock("@brighthr/icons", () => ({
   ChevronThinRightIcon: () => <svg data-testid="separator-icon" />,
+  HomeFillIcon: () => <svg data-testid="home-icon" />,
 }));
 
 describe("Options", () => {
   it("renders the breadcrumb Home link", () => {
     render(<Options />);
-    expect(screen.getByText("Home")).toBeInTheDocument();
+    expect(screen.getByTestId("home-icon")).toBeInTheDocument();
   });
 
   it("renders the sort select dropdown", () => {

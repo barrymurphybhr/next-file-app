@@ -10,10 +10,13 @@ export default function Options() {
     <div className="flex flex-col pl-4 pt-4">
       <Breadcrumb
         homeElement={<Home className="h-8 w-8" fill="black" />}
-        separator={<Separator className="h-4 w-4 mt-2" />}
+        separator={
+          <Separator data-testid="separator-icon" className="h-4 w-4 mt-2" />
+        }
         activeClasses="underline font-bold"
         containerClasses="flex py-4 gap-2"
         listClasses="hover:underline flex items-center font-base"
+        capitalizeLinks
       />
       <Suspense>
         <Sorting />
