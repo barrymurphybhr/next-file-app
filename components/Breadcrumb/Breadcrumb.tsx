@@ -11,7 +11,6 @@ type TBreadCrumbProps = {
   containerClasses?: string;
   listClasses?: string;
   activeClasses?: string;
-  capitalizeLinks?: boolean;
 };
 
 export default function Breadcrumb({
@@ -20,7 +19,6 @@ export default function Breadcrumb({
   containerClasses,
   listClasses,
   activeClasses,
-  capitalizeLinks,
 }: TBreadCrumbProps) {
   const paths = usePathname();
   const pathNames = paths.split("/").filter((path) => path);
@@ -39,13 +37,11 @@ export default function Breadcrumb({
           const isLast = index === pathNames.length - 1;
           const itemClasses =
             paths === href ? `${listClasses} ${activeClasses}` : listClasses;
-          const itemLink = capitalizeLinks
-            ? link[0].toUpperCase() + link.slice(1)
-            : link;
+
           crumbs.push(
             <React.Fragment key={index}>
               <li className={itemClasses}>
-                <Link href={href}>{itemLink}</Link>
+                <Link href={href}>{link}</Link>
               </li>
               {!isLast && separator}
             </React.Fragment>,
