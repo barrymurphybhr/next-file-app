@@ -24,7 +24,7 @@ export default function FileItem({
 }: FileItemProps) {
   const router = useRouter();
 
-  const handleDoubleClick = () => {
+  const handleClick = () => {
     if (type === "folder") {
       router.push(`${currentPath}/${encodeURIComponent(name)}`);
     }
@@ -53,14 +53,17 @@ export default function FileItem({
 
   return (
     <article
-      className="flex gap-2 cursor-pointer"
-      onDoubleClick={handleDoubleClick}
+      className="flex flex-col items-center text-center justify-center hover:bg-gray-100 shadow-xl active:border-2 w-44 h-44 lg:h-64 lg:w-64 p-2 border rounded-xl gap-2 cursor-pointer"
+      onClick={handleClick}
     >
-      <Icon className="h-5 w-5" />
-      {type === "folder" ? <h3>{name}</h3> : <h3>{`${name}.${type}`}</h3>}
-      <div className="flex gap-2">
-        <p>{added}</p>
-      </div>
+      <Icon className="lg:h-18 lg:w-18 h-10 w-10" />
+      {type === "folder" ? (
+        <p className="font-semibold">{name}</p>
+      ) : (
+        <p>{`${name}.${type}`}</p>
+      )}
+
+      <p>{added}</p>
     </article>
   );
 }
