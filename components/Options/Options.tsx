@@ -7,9 +7,9 @@ export default function Options() {
   const Home = HomeFillIcon;
   const Separator = ChevronThinRightIcon;
   return (
-    <div className="flex flex-col pl-4 pt-4">
+    <div className="flex flex-col pl-4 pt-4 text-blue-900">
       <Breadcrumb
-        homeElement={<Home className="h-8 w-8" fill="black" />}
+        homeElement={<Home className="h-8 w-8" fill="#1E3A8A" />}
         separator={
           <Separator data-testid="separator-icon" className="h-4 w-4 mt-2" />
         }

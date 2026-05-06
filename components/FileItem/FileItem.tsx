@@ -1,5 +1,5 @@
 "use client";
-
+import { twMerge } from "tailwind-merge";
 import { useRouter } from "next/navigation";
 import {
   FolderIcon,
@@ -53,7 +53,12 @@ export default function FileItem({
 
   return (
     <article
-      className="flex flex-col items-center text-center justify-center hover:bg-gray-100 shadow-xl active:border-2 w-44 h-44 lg:h-64 lg:w-64 p-2 border rounded-xl gap-2 cursor-pointer"
+      className={twMerge(
+        "flex flex-col items-center text-center justify-center shadow-xl active:border-2 p-2 border rounded-xl gap-2 cursor-pointer",
+        type === "folder"
+          ? "border-purple-400 text-purple-500 hover:bg-purple-100 w-44 h-44 lg:h-64 lg:w-64"
+          : "border-blue-200 text-blue-400 w-42 h-42 lg:h-62 lg:w-62",
+      )}
       onClick={handleClick}
     >
       <Icon className="lg:h-18 lg:w-18 h-10 w-10" />
