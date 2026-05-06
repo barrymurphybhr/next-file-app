@@ -1,11 +1,20 @@
 import DATA from "@/data/data";
 import FileList from "@/components/FileList/FileList";
+import { sortItems } from "@/lib/sort";
 
-export default function Home() {
-  const data = DATA.FILES;
+type SearchParams = Promise<{ sort?: string }>;
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const { sort } = await searchParams;
+  const displayItems = sortItems(DATA.FILES, sort);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center">
-      <FileList fileItems={data} />
+    <div>
+      <FileList fileItems={displayItems} />
     </div>
   );
 }

@@ -1,34 +1,23 @@
-"use client";
-
-import { useState } from "react";
 import FileItem from "../FileItem/FileItem";
-
-type FileItemType = {
-  type: string;
-  name: string;
-  added: string;
-};
 
 type FileType = {
   type: string;
   name: string;
   added: string;
-  folder_files?: FileItemType[];
+  folder_files?: FileType[];
 };
 
 type FileListProps = {
   fileItems: FileType[];
+  currentPath?: string;
 };
 
-export default function FileList({ fileItems }: FileListProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+export default function FileList({
+  fileItems,
+  currentPath = "",
+}: FileListProps) {
   return (
-    <div>
+    <div className="flex flex-col gap-2 pt-4 pl-4">
       {fileItems.map((file, i) => {
         return (
           <FileItem
@@ -36,7 +25,7 @@ export default function FileList({ fileItems }: FileListProps) {
             name={file.name}
             type={file.type}
             added={file.added}
-            folderFiles={file.folder_files}
+            currentPath={currentPath}
           />
         );
       })}
